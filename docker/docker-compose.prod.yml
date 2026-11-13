@@ -1,0 +1,82 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    init: true
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      APP_URL: ${APP_URL:?Set APP_URL to the public HTTPS origin}
+      CLIENT_SECRET: ${CLIENT_SECRET:?Set CLIENT_SECRET to a strong random secret}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_RESET_PASSWORD: ${ADMIN_RESET_PASSWORD:-false}
+      MESSAGE_RETENTION_DAYS: ${MESSAGE_RETENTION_DAYS-90}
+      WEBHOOK_LOG_RETENTION_DAYS: ${WEBHOOK_LOG_RETENTION_DAYS-1}
+      MEDIA_MAX_FILE_SIZE_MB: ${MEDIA_MAX_FILE_SIZE_MB-25}
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD to a random hexadecimal password}@postgres:5432/postgres
+      MEDIA_STORAGE_ENABLED: ${MEDIA_STORAGE_ENABLED:-false}
+      MEDIA_STORAGE_DRIVER: ${MEDIA_STORAGE_DRIVER:-fs}
+      MEDIA_STORAGE_PATH: /app/storage/media
+      S3_BUCKET: ${S3_BUCKET:-}
+      S3_REGION: ${S3_REGION:-}
+      S3_ENDPOINT: ${S3_ENDPOINT:-}
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID:-}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY:-}
+      S3_FORCE_PATH_STYLE: ${S3_FORCE_PATH_STYLE:-false}
+      S3_SUPPORTS_ACL: ${S3_SUPPORTS_ACL:-false}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    expose:
+      - "3001"
+    networks:
+      - backend
+      - dokploy-network
+    volumes:
+      - media-data:/app/storage/media
+    healthcheck:
+      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3001/health').then(r => { if (!r.ok) process.exit(1) }).catch(() => process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      start_period: 120s
+      retries: 5
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD to a random hexadecimal password}
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - backend
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  backend:
+    internal: true
+  dokploy-network:
+    external: true
+
+volumes:
+  db-data:
+  media-data:

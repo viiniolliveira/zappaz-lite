@@ -1,0 +1,12 @@
+node_modules
+.bun
+.git
+.env*
+**/.env*
+*.log
+dist
+test
+generated
+server/generated
+storage
+.DS_Store

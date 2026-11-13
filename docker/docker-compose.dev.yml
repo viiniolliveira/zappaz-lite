@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5432:5432"
+
+  drizzle-gateway:
+    image: ghcr.io/drizzle-team/gateway:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4983:4983"
+    environment:
+      PORT: 4983
+      MASTERPASS: ${MASTERPASS:?Set MASTERPASS in the root .env}
+    volumes:
+      - drizzle-gateway-data:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  db-data:
+  drizzle-gateway-data:

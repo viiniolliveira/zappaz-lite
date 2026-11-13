@@ -1,0 +1,422 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+  engineType = "client"
+  runtime = "bun"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id               String          @id @default(uuid())
+  email            String          @unique
+  emailVerified    Boolean         @default(false)
+  image            String?
+  banned           Boolean         @default(false)
+  banReason        String?
+  banExpires       DateTime?
+  updatedAt        DateTime        @default(now()) @updatedAt
+  firstName        String
+  lastName         String
+  role             Role            @default(USER)
+  createdAt        DateTime        @default(now())
+  phone            String?
+
+  sessions         WaSession[]     @relation("WaSessions")
+  authSessions     AuthSession[]
+  accounts         Account[]
+  apiKeys          Apikey[]
+
+  @@index([role])
+}
+
+model Apikey {
+  id                  String   @id @default(uuid())
+  configId            String   @default("default")
+  name                String?
+  start               String?
+  prefix              String?
+  key                 String
+  referenceId         String
+  user                User     @relation(fields: [referenceId], references: [id], onDelete: Cascade)
+  refillInterval      Int?
+  refillAmount        Int?
+  lastRefillAt        DateTime?
+  enabled             Boolean  @default(true)
+  rateLimitEnabled    Boolean  @default(true)
+  rateLimitTimeWindow Int      @default(60000)
+  rateLimitMax        Int      @default(120)
+  requestCount        Int      @default(0)
+  remaining           Int?
+  lastRequest         DateTime?
+  expiresAt           DateTime?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  permissions         String?
+  metadata            String?
+
+  @@index([configId])
+  @@index([referenceId])
+  @@index([key])
+}
+
+model AuthSession {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  impersonatedBy String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Account {
+  id                     String    @id @default(uuid())
+  accountId              String
+  providerId             String
+  userId                 String
+  user                   User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken            String?
+  refreshToken           String?
+  idToken                String?
+  accessTokenExpiresAt   DateTime?
+  refreshTokenExpiresAt  DateTime?
+  scope                  String?
+  password               String?
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+}
+
+model Verification {
+  id         String   @id @default(uuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+}
+
+
+model WaSession {
+  id                 String                 @id @default(uuid())
+  status             String?
+  createdAt          DateTime               @default(now())
+  updatedAt          DateTime               @updatedAt
+  disconnectedAt     DateTime?
+  connectedAt        DateTime?
+  jid                String?
+  enabled            Boolean                @default(true)
+  userId             String?
+  profilePictureUrl  String?
+  displayName        String?
+  archived           Boolean                @default(false)
+
+  config             WaConfig?
+  messages           WaMessage[]
+  contacts           WaContact[]
+  conversationLabels WaConversationLabel[]
+  quickMessages      WaQuickMessage[]
+  conversations      WaConversation[]
+  sendMessageHistory WaSendMessageHistory[]
+  user               User?                  @relation("WaSessions", fields: [userId], references: [id], onDelete: Restrict)
+
+  webhooks           Webhook[]
+
+  @@index([userId])
+  @@index([userId, archived, displayName])
+  @@index([archived, displayName])
+
+  @@index([status, archived, enabled, connectedAt])
+}
+
+model BaileysAuthState {
+  sessionId String
+  key       String
+  value     String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@id([sessionId, key])
+  @@index([expiresAt])
+}
+
+model WaConfig {
+  id                   String    @id @default(uuid())
+  sessionId            String    @unique
+  syncFullHistory      Boolean   @default(false)
+  markOnlineOnConnect  Boolean   @default(false)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  ignoreGroups         Boolean   @default(false)
+  clientConnectionName String?
+  rejectCalls          Boolean   @default(false)
+  messageOnCall        String?
+  signatureEnabled     Boolean   @default(false)
+  signatureName        String    @default("")
+  waSession            WaSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+}
+
+model WaSendMessageHistory {
+  id           String       @id @default(uuid())
+  sessionId    String
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  recipientJid String
+  type         MessageType?
+  waSession    WaSession    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, createdAt(sort: Desc)])
+}
+
+model WaMessage {
+  id              String    @id @default(uuid())
+  sessionId       String
+  conversationId  String
+  messageId       String
+  fromMe          Boolean   @default(false)
+  senderJid       String?
+  senderName      String?
+  type            String    @default("unknown")
+  text            String?
+  hasLink         Boolean   @default(false)
+  sentAt          DateTime?
+  orderAt         DateTime  @default(now())
+  revision        Int       @default(1)
+  editedAt        DateTime?
+  deletedAt       DateTime?
+  clientRequestId String?
+  content         Json      @default("{}")
+  rawContent      Json
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  status          Int?
+  whatsappSession WaSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  conversation    WaConversation @relation("ConversationMessages", fields: [sessionId, conversationId], references: [sessionId, id], onDelete: Cascade)
+  media           WaMessageMedia?
+
+  @@unique([sessionId, conversationId, messageId])
+  @@unique([sessionId, conversationId, id])
+  @@index([sessionId, messageId])
+  @@index([sessionId, orderAt, id])
+  @@index([sessionId, conversationId, orderAt, id])
+  @@index([sessionId, hasLink, orderAt, id])
+  @@index([sessionId, type, orderAt, id])
+  @@index([createdAt])
+}
+
+model WaContact {
+  id          String @id @default(uuid())
+  sessionId   String
+  jid         String
+  phoneNumber String?
+  lid         String?
+  name        String?
+  pushName    String?
+  localName   String?
+  isSaved     Boolean @default(false)
+  email       String?
+  annotations String?
+  avatarUrl   String?
+  avatarCheckedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  revision    Int @default(1)
+  session     WaSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  conversations WaConversation[]
+
+  @@unique([sessionId, jid])
+  @@unique([sessionId, phoneNumber])
+  @@unique([sessionId, lid])
+  @@unique([sessionId, id])
+  @@index([sessionId, name, id])
+  @@index([sessionId, isSaved, localName, id])
+}
+
+model WaQuickMessage {
+  id        String    @id @default(uuid()) @db.Uuid
+  sessionId String
+  session   WaSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  name      String
+  command   String
+  message   String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@unique([sessionId, command])
+}
+
+model WaConversationLabel {
+  id          String @id @default(uuid())
+  sessionId   String
+  name        String
+  description String
+  color       String
+  session     WaSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  conversations WaConversationLabelLink[]
+
+  @@unique([sessionId, name])
+  @@unique([sessionId, id])
+}
+
+model WaConversationLabelLink {
+  sessionId String
+  conversationId String
+  labelId   String
+  conversation WaConversation @relation(fields: [sessionId, conversationId], references: [sessionId, id], onDelete: Cascade)
+  label     WaConversationLabel @relation(fields: [sessionId, labelId], references: [sessionId, id], onDelete: Cascade)
+
+  @@id([sessionId, conversationId, labelId])
+  @@index([sessionId, labelId, conversationId])
+}
+
+model WaConversation {
+  id                String @id @default(uuid())
+  sessionId         String
+  contactId         String?
+  jid               String
+  isGroup           Boolean @default(false)
+  lastMessageId     String?
+  lastActivityAt    DateTime?
+  unreadCount       Int @default(0)
+  lastReadMessageId String?
+  lastReadOrderAt   DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  revision          Int @default(1)
+  session           WaSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  contact           WaContact? @relation(fields: [sessionId, contactId], references: [sessionId, id], onDelete: NoAction)
+  messages          WaMessage[] @relation("ConversationMessages")
+  media             WaMessageMedia[]
+  labels            WaConversationLabelLink[]
+
+  @@unique([sessionId, jid])
+  @@unique([sessionId, id])
+  @@index([sessionId, isGroup, lastActivityAt, id])
+  @@index([sessionId, contactId])
+}
+
+model WaMessageMedia {
+  id                  String @id @default(uuid())
+  sessionId           String
+  conversationId      String
+  messageId           String @unique
+  kind                String
+  mimeType            String?
+  fileName            String?
+  size                Float?
+  duration            Float?
+  width               Int?
+  height              Int?
+  voice               Boolean @default(false)
+  thumbnailBase64     String?
+  thumbnailMimeType   String?
+  thumbnailWidth      Int?
+  thumbnailHeight     Int?
+  storage             String?
+  key                 String?
+  persistedAt         DateTime?
+  storageStatus       String @default("not_saved")
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  revision            Int @default(1)
+  message             WaMessage @relation(fields: [sessionId, conversationId, messageId], references: [sessionId, conversationId, id], onDelete: Cascade)
+  conversation        WaConversation @relation(fields: [sessionId, conversationId], references: [sessionId, id], onDelete: Cascade)
+
+  @@unique([storage, key])
+  @@unique([sessionId, conversationId, messageId])
+  @@index([sessionId, conversationId, createdAt, id])
+}
+
+// Content-free deletion receipt: prevents history resurrection and retries file cleanup.
+// No session FK: cleanup must survive a later session cascade.
+model WaConversationDeletion {
+  conversationId String @id
+  sessionId      String
+  jid            String
+  deletedAt      DateTime @default(now())
+  historyBefore  DateTime
+  storages       String[]
+  filesDeletedAt DateTime?
+
+  @@index([sessionId, jid, deletedAt])
+  @@index([filesDeletedAt])
+}
+
+model Webhook {
+  id          String       @id @default(uuid())
+  url         String
+  enabled     Boolean
+  createdAt   DateTime     @default(now())
+  events      Json
+  waSessionId String
+  headers     Json
+  displayName String?
+  waSession   WaSession    @relation(fields: [waSessionId], references: [id], onDelete: Cascade)
+  logs        WebhookLog[]
+
+  @@index([waSessionId])
+}
+
+model WebhookLog {
+  id                 String   @id @default(uuid())
+  webhookId          String
+  createdAt          DateTime @default(now())
+  response           Json
+  url                String?
+  event              String?
+  sessionId          String?
+  webhookDisplayName String?
+  waSessionEventId   String?
+  payload            Json?
+  messageId          String?
+  parentLogId        String?
+  webhook            Webhook  @relation(fields: [webhookId], references: [id], onDelete: Cascade)
+  parentLog          WebhookLog?  @relation("WebhookLogResends", fields: [parentLogId], references: [id], onDelete: SetNull)
+  resends            WebhookLog[] @relation("WebhookLogResends")
+
+  @@index([webhookId, event, createdAt(sort: Desc)])
+  @@index([webhookId, createdAt(sort: Desc)])
+  @@index([sessionId])
+  @@index([createdAt])
+  @@index([parentLogId])
+}
+
+model GlobalWebhook {
+  id        String   @id @default(uuid())
+  url       String
+  enabled   Boolean
+  events    Json
+  createdAt DateTime @default(now())
+  headers   Json
+}
+
+
+
+enum Role {
+  ADMIN
+  USER
+}
+
+
+enum MessageType {
+  text
+  image
+  video
+  audio
+  document
+  location
+  contact
+}

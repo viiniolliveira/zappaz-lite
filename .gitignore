@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.*
+
+# Environment files
+.env
+.env.*
+*.env
+*.local
+!.env.example
+!/docker/.env.compose.example
+!/docker/.env.dockerfile.example
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+coverage/
+.next/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun-debug.log*
+lerna-debug.log*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Backend
+server/generated/
+
+# Prisma/local database artifacts
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+data.db
+
+# WhatsApp/session artifacts
+storage/
+.wwebjs_data/
+.wwebjs_cache/
+session-ses_*.md
+
+# Temporary files
+.tmp/
+tmp/
+.cache/
+
+# Misc project-local files
+Makefile
+backup.dump
+generated/
+plans/
+
+.bun
+.playwright-mcp

@@ -1,0 +1,914 @@
+[
+  {
+    "id": "default",
+    "name": "Padrão",
+    "file": "/themes/default.css",
+    "preview": {
+      "light": [
+        "oklch(0.7070 0.1891 151.2213)",
+        "oklch(0.9940 0 0)",
+        "oklch(0.9461 0 0)",
+        "oklch(0.9461 0 0)"
+      ],
+      "dark": [
+        "oklch(0.6271 0.1699 149.2138)",
+        "oklch(0.2603 0 0)",
+        "oklch(0.3132 0 0)",
+        "oklch(0.2393 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "amber-minimal",
+    "name": "Amber Minimal",
+    "file": "/themes/amber-minimal.css",
+    "preview": {
+      "light": [
+        "oklch(0.7686 0.1647 70.0804)",
+        "oklch(0.9670 0.0029 264.5419)",
+        "oklch(0.9869 0.0214 95.2774)",
+        "oklch(0.9846 0.0017 247.8389)"
+      ],
+      "dark": [
+        "oklch(0.7686 0.1647 70.0804)",
+        "oklch(0.2686 0 0)",
+        "oklch(0.4732 0.1247 46.2007)",
+        "oklch(0.2393 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "amethyst-haze",
+    "name": "Amethyst Haze",
+    "file": "/themes/amethyst-haze.css",
+    "preview": {
+      "light": [
+        "oklch(0.6104 0.0767 299.7335)",
+        "oklch(0.8957 0.0265 300.2416)",
+        "oklch(0.7889 0.0802 359.9375)",
+        "oklch(0.8906 0.0139 299.7754)"
+      ],
+      "dark": [
+        "oklch(0.7058 0.0777 302.0489)",
+        "oklch(0.4604 0.0472 295.5578)",
+        "oklch(0.3181 0.0321 308.6149)",
+        "oklch(0.2560 0.0320 294.8380)"
+      ]
+    }
+  },
+  {
+    "id": "basic",
+    "name": "Basic",
+    "file": "/themes/basic.css",
+    "preview": {
+      "light": [
+        "oklch(0.2050 0 0)",
+        "oklch(0.9700 0 0)",
+        "oklch(0.9700 0 0)",
+        "oklch(0.9700 0 0)"
+      ],
+      "dark": [
+        "oklch(0.9220 0 0)",
+        "oklch(0.2690 0 0)",
+        "oklch(0.3710 0 0)",
+        "oklch(0.2690 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "bold-tech",
+    "name": "Bold Tech",
+    "file": "/themes/bold-tech.css",
+    "preview": {
+      "light": [
+        "oklch(0.6056 0.2189 292.7172)",
+        "oklch(0.9618 0.0202 295.1913)",
+        "oklch(0.9319 0.0316 255.5855)",
+        "oklch(0.9691 0.0161 293.7558)"
+      ],
+      "dark": [
+        "oklch(0.6056 0.2189 292.7172)",
+        "oklch(0.2573 0.0861 281.2883)",
+        "oklch(0.4568 0.2146 277.0229)",
+        "oklch(0.2329 0.0919 279.1398)"
+      ]
+    }
+  },
+  {
+    "id": "bubblegum",
+    "name": "Bubblegum",
+    "file": "/themes/bubblegum.css",
+    "preview": {
+      "light": [
+        "oklch(0.6209 0.1801 348.1385)",
+        "oklch(0.8095 0.0694 198.1863)",
+        "oklch(0.9195 0.0801 87.6670)",
+        "oklch(0.8800 0.0504 212.0952)"
+      ],
+      "dark": [
+        "oklch(0.9195 0.0801 87.6670)",
+        "oklch(0.7794 0.0803 4.1330)",
+        "oklch(0.6699 0.0988 356.9762)",
+        "oklch(0.2713 0.0086 255.5780)"
+      ]
+    }
+  },
+  {
+    "id": "caffeine",
+    "name": "Caffeine",
+    "file": "/themes/caffeine.css",
+    "preview": {
+      "light": [
+        "oklch(0.4341 0.0392 41.9938)",
+        "oklch(0.9200 0.0651 74.3695)",
+        "oklch(0.9310 0 0)",
+        "oklch(0.9521 0 0)"
+      ],
+      "dark": [
+        "oklch(0.9247 0.0524 66.1732)",
+        "oklch(0.3163 0.0190 63.6992)",
+        "oklch(0.2850 0 0)",
+        "oklch(0.2520 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "candyland",
+    "name": "Candyland",
+    "file": "/themes/candyland.css",
+    "preview": {
+      "light": [
+        "oklch(0.8677 0.0735 7.0855)",
+        "oklch(0.8148 0.0819 225.7537)",
+        "oklch(0.9680 0.2110 109.7692)",
+        "oklch(0.8828 0.0285 98.1033)"
+      ],
+      "dark": [
+        "oklch(0.8027 0.1355 349.2347)",
+        "oklch(0.7395 0.2268 142.8504)",
+        "oklch(0.8148 0.0819 225.7537)",
+        "oklch(0.3867 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "catppuccin",
+    "name": "Catppuccin",
+    "file": "/themes/catppuccin.css",
+    "preview": {
+      "light": [
+        "oklch(0.5547 0.2503 297.0156)",
+        "oklch(0.8575 0.0145 268.4756)",
+        "oklch(0.6820 0.1448 235.3822)",
+        "oklch(0.9060 0.0117 264.5071)"
+      ],
+      "dark": [
+        "oklch(0.7871 0.1187 304.7693)",
+        "oklch(0.4765 0.0340 278.6430)",
+        "oklch(0.8467 0.0833 210.2545)",
+        "oklch(0.2973 0.0294 276.2144)"
+      ]
+    }
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "file": "/themes/claude.css",
+    "preview": {
+      "light": [
+        "oklch(0.6171 0.1375 39.0427)",
+        "oklch(0.9245 0.0138 92.9892)",
+        "oklch(0.9245 0.0138 92.9892)",
+        "oklch(0.9341 0.0153 90.2390)"
+      ],
+      "dark": [
+        "oklch(0.6724 0.1308 38.7559)",
+        "oklch(0.9818 0.0054 95.0986)",
+        "oklch(0.2130 0.0078 95.4245)",
+        "oklch(0.2213 0.0038 106.7070)"
+      ]
+    }
+  },
+  {
+    "id": "claymorphism",
+    "name": "Claymorphism",
+    "file": "/themes/claymorphism.css",
+    "preview": {
+      "light": [
+        "oklch(0.5854 0.2041 277.1173)",
+        "oklch(0.8687 0.0043 56.3660)",
+        "oklch(0.9376 0.0260 321.9388)",
+        "oklch(0.9232 0.0026 48.7171)"
+      ],
+      "dark": [
+        "oklch(0.6801 0.1583 276.9349)",
+        "oklch(0.3359 0.0077 59.4197)",
+        "oklch(0.3896 0.0074 59.4734)",
+        "oklch(0.2287 0.0074 67.4469)"
+      ]
+    }
+  },
+  {
+    "id": "clean-slate",
+    "name": "Clean Slate",
+    "file": "/themes/clean-slate.css",
+    "preview": {
+      "light": [
+        "oklch(0.5854 0.2041 277.1173)",
+        "oklch(0.9276 0.0058 264.5313)",
+        "oklch(0.9299 0.0334 272.7879)",
+        "oklch(0.9670 0.0029 264.5419)"
+      ],
+      "dark": [
+        "oklch(0.6801 0.1583 276.9349)",
+        "oklch(0.3351 0.0331 260.9120)",
+        "oklch(0.3729 0.0306 259.7328)",
+        "oklch(0.2427 0.0381 259.9437)"
+      ]
+    }
+  },
+  {
+    "id": "cosmic-night",
+    "name": "Cosmic Night",
+    "file": "/themes/cosmic-night.css",
+    "preview": {
+      "light": [
+        "oklch(0.5417 0.1790 288.0332)",
+        "oklch(0.9174 0.0435 292.6901)",
+        "oklch(0.9221 0.0373 262.1410)",
+        "oklch(0.9580 0.0133 286.1454)"
+      ],
+      "dark": [
+        "oklch(0.7162 0.1597 290.3962)",
+        "oklch(0.3139 0.0736 283.4591)",
+        "oklch(0.3354 0.0828 280.9705)",
+        "oklch(0.2710 0.0621 281.4377)"
+      ]
+    }
+  },
+  {
+    "id": "cyberpunk",
+    "name": "Cyberpunk",
+    "file": "/themes/cyberpunk.css",
+    "preview": {
+      "light": [
+        "oklch(0.6726 0.2904 341.4084)",
+        "oklch(0.9595 0.0200 286.0164)",
+        "oklch(0.8903 0.1739 171.2690)",
+        "oklch(0.9595 0.0200 286.0164)"
+      ],
+      "dark": [
+        "oklch(0.6726 0.2904 341.4084)",
+        "oklch(0.2542 0.0611 281.1423)",
+        "oklch(0.8903 0.1739 171.2690)",
+        "oklch(0.2123 0.0522 280.9917)"
+      ]
+    }
+  },
+  {
+    "id": "darkmatter",
+    "name": "Darkmatter",
+    "file": "/themes/darkmatter.css",
+    "preview": {
+      "light": [
+        "oklch(0.6716 0.1368 48.5130)",
+        "oklch(0.5360 0.0398 196.0280)",
+        "oklch(0.9491 0 0)",
+        "oklch(0.9670 0.0029 264.5419)"
+      ],
+      "dark": [
+        "oklch(0.7214 0.1337 49.9802)",
+        "oklch(0.5940 0.0443 196.0233)",
+        "oklch(0.3211 0 0)",
+        "oklch(0.2520 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "doom-64",
+    "name": "Doom 64",
+    "file": "/themes/doom-64.css",
+    "preview": {
+      "light": [
+        "oklch(0.5016 0.1887 27.4816)",
+        "oklch(0.4955 0.0896 126.1858)",
+        "oklch(0.5880 0.0993 245.7394)",
+        "oklch(0.7826 0 0)"
+      ],
+      "dark": [
+        "oklch(0.6083 0.2090 27.0276)",
+        "oklch(0.6423 0.1467 133.0145)",
+        "oklch(0.7482 0.1235 244.7492)",
+        "oklch(0.2645 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "elegant-luxury",
+    "name": "Elegant Luxury",
+    "file": "/themes/elegant-luxury.css",
+    "preview": {
+      "light": [
+        "oklch(0.4650 0.1470 24.9381)",
+        "oklch(0.9625 0.0385 89.0943)",
+        "oklch(0.9619 0.0580 95.6174)",
+        "oklch(0.9431 0.0068 53.4442)"
+      ],
+      "dark": [
+        "oklch(0.5054 0.1905 27.5181)",
+        "oklch(0.4732 0.1247 46.2007)",
+        "oklch(0.5553 0.1455 48.9975)",
+        "oklch(0.2291 0.0060 56.0708)"
+      ]
+    }
+  },
+  {
+    "id": "fallout",
+    "name": "Fallout",
+    "file": "/themes/fallout.css",
+    "preview": {
+      "light": [
+        "oklch(0.5784 0.1503 145.2231)",
+        "oklch(0.5252 0.0419 111.1474)",
+        "oklch(0.5784 0.1503 145.2231)",
+        "oklch(0.8432 0.0647 95.7146)"
+      ],
+      "dark": [
+        "oklch(0.8667 0.2731 143.2508)",
+        "oklch(0.4042 0.0257 107.4961)",
+        "oklch(0.6444 0.2002 143.2417)",
+        "oklch(0.2404 0.0176 127.1875)"
+      ]
+    }
+  },
+  {
+    "id": "graphite",
+    "name": "Graphite",
+    "file": "/themes/graphite.css",
+    "preview": {
+      "light": [
+        "oklch(0.4891 0 0)",
+        "oklch(0.9067 0 0)",
+        "oklch(0.8078 0 0)",
+        "oklch(0.8853 0 0)"
+      ],
+      "dark": [
+        "oklch(0.7058 0 0)",
+        "oklch(0.3092 0 0)",
+        "oklch(0.3715 0 0)",
+        "oklch(0.2850 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "kodama-grove",
+    "name": "Kodama Grove",
+    "file": "/themes/kodama-grove.css",
+    "preview": {
+      "light": [
+        "oklch(0.6657 0.1050 118.9078)",
+        "oklch(0.8532 0.0631 91.1493)",
+        "oklch(0.8361 0.0713 90.3269)",
+        "oklch(0.8532 0.0631 91.1493)"
+      ],
+      "dark": [
+        "oklch(0.6762 0.0567 132.4479)",
+        "oklch(0.4448 0.0239 84.5498)",
+        "oklch(0.6540 0.0723 90.7629)",
+        "oklch(0.3892 0.0197 82.7084)"
+      ]
+    }
+  },
+  {
+    "id": "midnight-bloom",
+    "name": "Midnight Bloom",
+    "file": "/themes/midnight-bloom.css",
+    "preview": {
+      "light": [
+        "oklch(0.5676 0.2021 283.0838)",
+        "oklch(0.8214 0.0720 249.3482)",
+        "oklch(0.6475 0.0642 117.4260)",
+        "oklch(0.8202 0.0213 91.6163)"
+      ],
+      "dark": [
+        "oklch(0.5676 0.2021 283.0838)",
+        "oklch(0.3390 0.1793 301.6848)",
+        "oklch(0.6746 0.1414 261.3380)",
+        "oklch(0.3867 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "mocha-mousse",
+    "name": "Mocha Mousse",
+    "file": "/themes/mocha-mousse.css",
+    "preview": {
+      "light": [
+        "oklch(0.6083 0.0623 44.3588)",
+        "oklch(0.7473 0.0387 80.5476)",
+        "oklch(0.8502 0.0389 49.0874)",
+        "oklch(0.8502 0.0389 49.0874)"
+      ],
+      "dark": [
+        "oklch(0.7272 0.0539 52.3320)",
+        "oklch(0.5416 0.0512 37.2132)",
+        "oklch(0.7473 0.0387 80.5476)",
+        "oklch(0.4063 0.0255 40.3627)"
+      ]
+    }
+  },
+  {
+    "id": "modern-minimal",
+    "name": "Modern Minimal",
+    "file": "/themes/modern-minimal.css",
+    "preview": {
+      "light": [
+        "oklch(0.6231 0.1880 259.8145)",
+        "oklch(0.9670 0.0029 264.5419)",
+        "oklch(0.9514 0.0250 236.8242)",
+        "oklch(0.9846 0.0017 247.8389)"
+      ],
+      "dark": [
+        "oklch(0.6231 0.1880 259.8145)",
+        "oklch(0.2686 0 0)",
+        "oklch(0.3791 0.1378 265.5222)",
+        "oklch(0.2393 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "mono",
+    "name": "Mono",
+    "file": "/themes/mono.css",
+    "preview": {
+      "light": [
+        "oklch(0.5555 0 0)",
+        "oklch(0.9702 0 0)",
+        "oklch(0.9702 0 0)",
+        "oklch(0.9702 0 0)"
+      ],
+      "dark": [
+        "oklch(0.5555 0 0)",
+        "oklch(0.2686 0 0)",
+        "oklch(0.3715 0 0)",
+        "oklch(0.2686 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "nature",
+    "name": "Nature",
+    "file": "/themes/nature.css",
+    "preview": {
+      "light": [
+        "oklch(0.5234 0.1347 144.1672)",
+        "oklch(0.9571 0.0210 147.6360)",
+        "oklch(0.8952 0.0504 146.0366)",
+        "oklch(0.9370 0.0142 74.4218)"
+      ],
+      "dark": [
+        "oklch(0.6731 0.1624 144.2083)",
+        "oklch(0.3942 0.0265 142.9926)",
+        "oklch(0.5752 0.1446 144.1813)",
+        "oklch(0.2926 0.0212 147.7496)"
+      ]
+    }
+  },
+  {
+    "id": "neo-brutalism",
+    "name": "Neo Brutalism",
+    "file": "/themes/neo-brutalism.css",
+    "preview": {
+      "light": [
+        "oklch(0.6489 0.2370 26.9728)",
+        "oklch(0.9680 0.2110 109.7692)",
+        "oklch(0.5635 0.2408 260.8178)",
+        "oklch(0.9551 0 0)"
+      ],
+      "dark": [
+        "oklch(0.7044 0.1872 23.1858)",
+        "oklch(0.9691 0.2005 109.6228)",
+        "oklch(0.6755 0.1765 252.2592)",
+        "oklch(0.2178 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "northern-lights",
+    "name": "Northern Lights",
+    "file": "/themes/northern-lights.css",
+    "preview": {
+      "light": [
+        "oklch(0.6487 0.1538 150.3071)",
+        "oklch(0.6746 0.1414 261.3380)",
+        "oklch(0.8269 0.1080 211.9627)",
+        "oklch(0.8828 0.0285 98.1033)"
+      ],
+      "dark": [
+        "oklch(0.6487 0.1538 150.3071)",
+        "oklch(0.5880 0.0993 245.7394)",
+        "oklch(0.6746 0.1414 261.3380)",
+        "oklch(0.3867 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "notebook",
+    "name": "Notebook",
+    "file": "/themes/notebook.css",
+    "preview": {
+      "light": [
+        "oklch(0.4891 0 0)",
+        "oklch(0.9006 0 0)",
+        "oklch(0.9354 0.0456 94.8549)",
+        "oklch(0.9158 0 0)"
+      ],
+      "dark": [
+        "oklch(0.7572 0 0)",
+        "oklch(0.4676 0 0)",
+        "oklch(0.9067 0 0)",
+        "oklch(0.3904 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "ocean-breeze",
+    "name": "Ocean Breeze",
+    "file": "/themes/ocean-breeze.css",
+    "preview": {
+      "light": [
+        "oklch(0.7227 0.1920 149.5793)",
+        "oklch(0.9514 0.0250 236.8242)",
+        "oklch(0.9505 0.0507 163.0508)",
+        "oklch(0.9670 0.0029 264.5419)"
+      ],
+      "dark": [
+        "oklch(0.7729 0.1535 163.2231)",
+        "oklch(0.3351 0.0331 260.9120)",
+        "oklch(0.3729 0.0306 259.7328)",
+        "oklch(0.2463 0.0275 259.9628)"
+      ]
+    }
+  },
+  {
+    "id": "pastel-dreams",
+    "name": "Pastel Dreams",
+    "file": "/themes/pastel-dreams.css",
+    "preview": {
+      "light": [
+        "oklch(0.7090 0.1592 293.5412)",
+        "oklch(0.9073 0.0530 306.0902)",
+        "oklch(0.9376 0.0260 321.9388)",
+        "oklch(0.9464 0.0327 307.1745)"
+      ],
+      "dark": [
+        "oklch(0.7874 0.1179 295.7538)",
+        "oklch(0.3416 0.0444 308.8496)",
+        "oklch(0.3858 0.0509 304.6383)",
+        "oklch(0.2283 0.0375 302.9006)"
+      ]
+    }
+  },
+  {
+    "id": "perpetuity",
+    "name": "Perpetuity",
+    "file": "/themes/perpetuity.css",
+    "preview": {
+      "light": [
+        "oklch(0.5624 0.0947 203.2755)",
+        "oklch(0.9244 0.0181 196.8450)",
+        "oklch(0.9021 0.0297 201.8915)",
+        "oklch(0.9295 0.0107 196.9723)"
+      ],
+      "dark": [
+        "oklch(0.8520 0.1269 195.0354)",
+        "oklch(0.3775 0.0564 216.5010)",
+        "oklch(0.3775 0.0564 216.5010)",
+        "oklch(0.2894 0.0412 218.8153)"
+      ]
+    }
+  },
+  {
+    "id": "quantum-rose",
+    "name": "Quantum Rose",
+    "file": "/themes/quantum-rose.css",
+    "preview": {
+      "light": [
+        "oklch(0.6002 0.2414 0.1348)",
+        "oklch(0.9230 0.0701 326.1273)",
+        "oklch(0.8766 0.0828 344.8849)",
+        "oklch(0.9429 0.0363 344.2604)"
+      ],
+      "dark": [
+        "oklch(0.7543 0.2319 332.0212)",
+        "oklch(0.3184 0.0915 319.6465)",
+        "oklch(0.3558 0.1201 325.7655)",
+        "oklch(0.2701 0.0770 312.3525)"
+      ]
+    }
+  },
+  {
+    "id": "retro-arcade",
+    "name": "Retro Arcade",
+    "file": "/themes/retro-arcade.css",
+    "preview": {
+      "light": [
+        "oklch(0.5924 0.2025 355.8943)",
+        "oklch(0.6437 0.1019 187.3840)",
+        "oklch(0.5808 0.1732 39.5003)",
+        "oklch(0.6979 0.0159 196.7940)"
+      ],
+      "dark": [
+        "oklch(0.5924 0.2025 355.8943)",
+        "oklch(0.6437 0.1019 187.3840)",
+        "oklch(0.5808 0.1732 39.5003)",
+        "oklch(0.5230 0.0283 219.1365)"
+      ]
+    }
+  },
+  {
+    "id": "sage-garden",
+    "name": "Sage Garden",
+    "file": "/themes/sage-garden.css",
+    "preview": {
+      "light": [
+        "oklch(0.6333 0.0309 154.9039)",
+        "oklch(0.8596 0.0291 119.9919)",
+        "oklch(0.8242 0.0221 136.6092)",
+        "oklch(0.9251 0.0071 88.6450)"
+      ],
+      "dark": [
+        "oklch(0.6333 0.0309 154.9039)",
+        "oklch(0.2178 0 0)",
+        "oklch(0.3709 0.0248 153.9823)",
+        "oklch(0.2178 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "shopify",
+    "name": "Shopify",
+    "file": "/themes/shopify.css",
+    "preview": {
+      "light": [
+        "oklch(0.7491 0.1481 126.1682)",
+        "oklch(0.9495 0.0057 128.5275)",
+        "oklch(0.9301 0.0368 127.4021)",
+        "oklch(0.9596 0.0041 121.5615)"
+      ],
+      "dark": [
+        "oklch(0.8198 0.1485 126.0486)",
+        "oklch(0.2494 0.0075 118.3601)",
+        "oklch(0.2814 0.0697 126.7472)",
+        "oklch(0.2314 0.0081 128.8569)"
+      ]
+    }
+  },
+  {
+    "id": "soft-pop",
+    "name": "Soft Pop",
+    "file": "/themes/soft-pop.css",
+    "preview": {
+      "light": [
+        "oklch(0.5106 0.2301 276.9656)",
+        "oklch(0.7038 0.1230 182.5025)",
+        "oklch(0.7686 0.1647 70.0804)",
+        "oklch(0.9551 0 0)"
+      ],
+      "dark": [
+        "oklch(0.6801 0.1583 276.9349)",
+        "oklch(0.7845 0.1325 181.9120)",
+        "oklch(0.8790 0.1534 91.6054)",
+        "oklch(0.3211 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "solar-dusk",
+    "name": "Solar Dusk",
+    "file": "/themes/solar-dusk.css",
+    "preview": {
+      "light": [
+        "oklch(0.5553 0.1455 48.9975)",
+        "oklch(0.8276 0.0752 74.4400)",
+        "oklch(0.9000 0.0500 74.9889)",
+        "oklch(0.9363 0.0218 83.2637)"
+      ],
+      "dark": [
+        "oklch(0.7049 0.1867 47.6044)",
+        "oklch(0.4444 0.0096 73.6390)",
+        "oklch(0.3598 0.0497 229.3202)",
+        "oklch(0.2330 0.0073 67.4563)"
+      ]
+    }
+  },
+  {
+    "id": "starry-night",
+    "name": "Starry Night",
+    "file": "/themes/starry-night.css",
+    "preview": {
+      "light": [
+        "oklch(0.4815 0.1178 263.3758)",
+        "oklch(0.8567 0.1164 81.0092)",
+        "oklch(0.6896 0.0714 234.0387)",
+        "oklch(0.9202 0.0080 106.5563)"
+      ],
+      "dark": [
+        "oklch(0.4815 0.1178 263.3758)",
+        "oklch(0.9097 0.1440 95.1120)",
+        "oklch(0.8469 0.0524 264.7751)",
+        "oklch(0.2424 0.0324 281.0890)"
+      ]
+    }
+  },
+  {
+    "id": "sunset-horizon",
+    "name": "Sunset Horizon",
+    "file": "/themes/sunset-horizon.css",
+    "preview": {
+      "light": [
+        "oklch(0.7357 0.1641 34.7091)",
+        "oklch(0.9596 0.0200 28.9029)",
+        "oklch(0.8278 0.1131 57.9984)",
+        "oklch(0.9656 0.0176 39.4009)"
+      ],
+      "dark": [
+        "oklch(0.7357 0.1641 34.7091)",
+        "oklch(0.3637 0.0203 342.2664)",
+        "oklch(0.8278 0.1131 57.9984)",
+        "oklch(0.2848 0.0159 343.6554)"
+      ]
+    }
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "file": "/themes/supabase.css",
+    "preview": {
+      "light": [
+        "oklch(0.8348 0.1302 160.9080)",
+        "oklch(0.9940 0 0)",
+        "oklch(0.9461 0 0)",
+        "oklch(0.9461 0 0)"
+      ],
+      "dark": [
+        "oklch(0.4365 0.1044 156.7556)",
+        "oklch(0.2603 0 0)",
+        "oklch(0.3132 0 0)",
+        "oklch(0.2393 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "t3-chat",
+    "name": "T3 Chat",
+    "file": "/themes/t3-chat.css",
+    "preview": {
+      "light": [
+        "oklch(0.5316 0.1409 355.1999)",
+        "oklch(0.8696 0.0675 334.8991)",
+        "oklch(0.8696 0.0675 334.8991)",
+        "oklch(0.9395 0.0260 331.5454)"
+      ],
+      "dark": [
+        "oklch(0.4607 0.1853 4.0994)",
+        "oklch(0.3137 0.0306 310.0610)",
+        "oklch(0.3649 0.0508 308.4911)",
+        "oklch(0.2634 0.0219 309.4748)"
+      ]
+    }
+  },
+  {
+    "id": "tangerine",
+    "name": "Tangerine",
+    "file": "/themes/tangerine.css",
+    "preview": {
+      "light": [
+        "oklch(0.6397 0.1720 36.4421)",
+        "oklch(0.9670 0.0029 264.5419)",
+        "oklch(0.9119 0.0222 243.8174)",
+        "oklch(0.9846 0.0017 247.8389)"
+      ],
+      "dark": [
+        "oklch(0.6397 0.1720 36.4421)",
+        "oklch(0.3095 0.0266 266.7132)",
+        "oklch(0.3380 0.0589 267.5867)",
+        "oklch(0.3095 0.0266 266.7132)"
+      ]
+    }
+  },
+  {
+    "id": "terminal",
+    "name": "Terminal",
+    "file": "/themes/terminal.css",
+    "preview": {
+      "light": [
+        "oklch(0.8686 0.2776 144.4661)",
+        "oklch(0.3053 0.1039 142.4953)",
+        "oklch(0.8686 0.2776 144.4661)",
+        "oklch(0.1887 0.0642 142.4953)"
+      ],
+      "dark": [
+        "oklch(0.8686 0.2776 144.4661)",
+        "oklch(0.3053 0.1039 142.4953)",
+        "oklch(0.8686 0.2776 144.4661)",
+        "oklch(0.1887 0.0642 142.4953)"
+      ]
+    }
+  },
+  {
+    "id": "twitter",
+    "name": "Twitter",
+    "file": "/themes/twitter.css",
+    "preview": {
+      "light": [
+        "oklch(0.6723 0.1606 244.9955)",
+        "oklch(0.1884 0.0128 248.5103)",
+        "oklch(0.9392 0.0166 250.8453)",
+        "oklch(0.9222 0.0013 286.3737)"
+      ],
+      "dark": [
+        "oklch(0.6692 0.1607 245.0110)",
+        "oklch(0.9622 0.0035 219.5331)",
+        "oklch(0.1928 0.0331 242.5459)",
+        "oklch(0.2090 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "file": "/themes/vercel.css",
+    "preview": {
+      "light": [
+        "oklch(0 0 0)",
+        "oklch(0.9400 0 0)",
+        "oklch(0.9400 0 0)",
+        "oklch(0.9700 0 0)"
+      ],
+      "dark": [
+        "oklch(1 0 0)",
+        "oklch(0.2500 0 0)",
+        "oklch(0.3200 0 0)",
+        "oklch(0.2300 0 0)"
+      ]
+    }
+  },
+  {
+    "id": "vintage-paper",
+    "name": "Vintage Paper",
+    "file": "/themes/vintage-paper.css",
+    "preview": {
+      "light": [
+        "oklch(0.6180 0.0778 65.5444)",
+        "oklch(0.8846 0.0302 85.5655)",
+        "oklch(0.8348 0.0426 88.8064)",
+        "oklch(0.9239 0.0190 83.0636)"
+      ],
+      "dark": [
+        "oklch(0.7264 0.0581 66.6967)",
+        "oklch(0.3795 0.0181 57.1280)",
+        "oklch(0.4186 0.0281 56.3404)",
+        "oklch(0.2939 0.0125 62.1298)"
+      ]
+    }
+  },
+  {
+    "id": "violet-bloom",
+    "name": "Violet Bloom",
+    "file": "/themes/violet-bloom.css",
+    "preview": {
+      "light": [
+        "oklch(0.5393 0.2713 286.7462)",
+        "oklch(0.9540 0.0063 255.4755)",
+        "oklch(0.9393 0.0288 266.3680)",
+        "oklch(0.9702 0 0)"
+      ],
+      "dark": [
+        "oklch(0.6132 0.2294 291.7437)",
+        "oklch(0.2940 0.0130 272.9312)",
+        "oklch(0.2795 0.0368 260.0310)",
+        "oklch(0.2940 0.0130 272.9312)"
+      ]
+    }
+  },
+  {
+    "id": "whatsapp",
+    "name": "WhatsApp",
+    "file": "/themes/whatsapp.css",
+    "preview": {
+      "light": [
+        "oklch(0.4335 0.0754 182.2315)",
+        "oklch(0.9644 0.0208 166.1014)",
+        "oklch(0.7610 0.2015 149.7403)",
+        "oklch(0.9605 0.0046 258.3248)"
+      ],
+      "dark": [
+        "oklch(0.6509 0.1283 170.4258)",
+        "oklch(0.2933 0.0423 172.8195)",
+        "oklch(0.7610 0.2015 149.7403)",
+        "oklch(0.2456 0.0195 239.1061)"
+      ]
+    }
+  }
+]
